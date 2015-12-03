@@ -1,0 +1,73 @@
+<!-- contact.html -->
+    <div class="container">
+        <div row>
+        	<div id="googleMap" ></div>
+        </div>
+ 		<div class="row">
+	    	<div class="col-md-9">
+	    		 <h1>Let's Get In Touch!</h1>
+	       		 <p>Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+	    	</div>
+    	</div>
+	    <form name="contactForm" ng-submit = "send(contactForm.$valid)" novalidate>
+		   
+		    <div class="row">
+		    	<div class="col-md-3">
+		    		<div class="form-group" ng-class="{ 'has-error' : contactForm.name.$invalid && !contactForm.name.$pristine }">
+		    			<label for="name">Name</label>
+		    			<input type="text" name="name" class="form-control" placeHolder = "Name" 
+		    			ng-model = "name"  ng-minlength = "4" ng-maxlength = "15" ng-pattern= "/^[a-zA-Z ]*$/" required>
+		    			<p ng-show="contactForm.name.$invalid && !contactForm.name.$pristine && !contactForm.name.$error.minlength && !contactForm.name.$error.maxlength" class="help-block" >Please, enter only letters.</p>
+		    			<p ng-show="contactForm.name.$error.minlength" class="help-block">Username is too short.</p>
+		    			<p ng-show="contactForm.name.$error.maxlength" class="help-block">Username is too long.</p>
+		    		</div>
+		    		
+		    	</div>
+
+		    	<div class="col-md-3">
+		    		<div class="form-group" ng-class="{ 'has-error' : contactForm.email.$invalid && !contactForm.email.$pristine }">
+		    			<label for = "email"> Email </label>
+		    			<input type="email" name="email" class="form-control" placeHolder = "Email"
+		    			ng-model = "email" ng-minlength = "10" ng-maxlength = "100" 
+		    			ng-pattern = "/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/" required>
+		    			<p ng-show="contactForm.email.$invalid && !contactForm.email.$pristine && !contactForm.email.$error.minlength && !contactForm.email.$error.maxlength" class="help-block" >Please, enter correct email format.</p>
+		    			<p ng-show="contactForm.email.$error.minlength" class="help-block">email is too short.</p>
+		    			<p ng-show="contactForm.email.$error.maxlength" class="help-block">email is too long.</p>
+		    		</div>
+		    	</div>
+
+		    	<div class="col-md-3">
+		    		<div class="form-group" ng-class="{ 'has-error' : contactForm.phone.$invalid && !contactForm.phone.$pristine }">
+		    			<label for = "phone">Phone number</label>
+		    			<input type = "text" name = "phone" class="form-control" placeHolder = "Phone number" ng-model = "phone" ng-pattern = "/^(\([0-9]{3}\)\s?|[0-9]{3}-)[0-9]{3}-[0-9]{4}$/" required>
+		    			<p ng-show="contactForm.phone.$invalid && !contactForm.phone.$pristine" class="help-block">enter correct phone number.</p>
+		    			
+		    		</div>
+		    		
+		    	</div>
+		    	
+		    </div>
+		    <div class="row">
+		    	<div class="col-md-9">
+		    		<div class="form-group" ng-class="{ 'has-error' : contactForm.message.$invalid && !contactForm.message.$pristine }">
+		    			<label for = "message">Message</label>
+		    			<textarea name = "message" rows="5" placeholder = "Type your message here!" class="form-control" ng-model = "message" ng-minlength = "10" ng-maxlength = "300"
+		    			ng-pattern= "/^[a-zA-Z ]*$/" required></textarea> 
+		    			<p ng-show="contactForm.message.$invalid && !contactForm.message.$pristine && !contactForm.message.$error.minlength && !contactForm.message.$error.maxlength" class="help-block" >Please, enter only letters.</p>
+		    			<p ng-show="contactForm.message.$error.minlength" class="help-block">message is too short.</p>
+		    			<p ng-show="contactForm.message.$error.maxlength" class="help-block">message is too long.</p>
+		    		</div>
+		    	</div>
+		    </div>
+
+		    <div class="row">
+		    	<div class="col-md-9">
+		    		<div class="form-group">
+		    			<button type = "submit" class="btn btn-primary" ng-disabled = "contactForm.$invalid">Send Message</button>
+		    		</div>
+		    		
+		    	</div>
+		    	
+		    </div>
+	    </form>   
+    </div>

@@ -1,0 +1,132 @@
+<!-- about.html -->
+    <div class="container">
+     <div class="row">
+        <div class='col-md-6'>
+	   		<div class="form-group">
+			    <label for="name">Name</label>
+			    <input type="text" class="form-control" id="name" placeholder="Name" ng-model = "name">
+		    </div>
+		</div>
+	</div>
+	<div class="row">
+        <div class='col-md-6'>
+        	<div class="form-group">
+			    <label for="email">Email address</label>
+			    <input type="email" class="form-control" id="email" placeholder="Email" ng-model = "email">
+			</div>
+        </div>
+    </div>
+			
+    <div class="row">
+        <div class='col-md-6'>
+	        <div class="form-group ">
+		        <label  for="date"> Reservation Date </label>
+		        <input type="text" class="form-control" id="date" placeholder="Reservation Date" ng-model = "date">
+	        </div>
+	        
+        </div>
+	</div>	
+
+    <div class="row">
+    	<div class="col-md-6">
+    		<!-- Single button -->
+			<div class="form-group ">
+			    <label for="singleSelect"> Choose favorite city </label>
+			  	<select name="singleSelect" class="form-control"  ng-model="city" >
+		  			<option  ng-repeat = "item in allCities">
+		  				{{item}}
+		  			</option>
+    		 </select>
+			</div>
+    	</div>
+    </div> 
+
+    <div class="row text-right">
+    	<div class="col-md-6">
+	    	<div class="form-group">
+	    		<button type="button" class="btn btn-primary" ng-click = "addReservation()">Add Reservation</button>
+	    	</div>
+    	</div>
+    </div>
+    <table class="table table-hover">
+	    <thead>
+	      <tr>
+	        <th>Name</th>
+	        <th>Email</th>
+	        <th>Reservation Date</th>
+	        <th>City</th>
+	        <th></th>
+	        <th></th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr ng-repeat = "item in allReservation">
+	        <td>{{item.name}}</td>
+	        <td>{{item.email}}</td>
+	        <td>{{item.date}}</td>
+	        <td>{{item.city}}</td>
+	        <td>
+	        	<a href="" ng-click="deleteReservation(item)">
+	        		<span class="glyphicon glyphicon-remove error" aria-hidden="true"></span> 
+	        	</a>
+	        </td>
+	        <td>
+	       		<a href=""  ng-click = "openPopup(item)">
+	       			<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 
+	       		</a>
+	        </td>
+	      </tr> 
+	      
+	    </tbody>
+    </table>
+
+
+    <!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+		    <div class="modal-content">
+
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title">Edit Reservation</h4>
+		      </div>
+
+		      <div class="modal-body">
+		     		
+			        <div class="form-group">
+					    <label for="name">Name</label>
+					    <input type="text" class="form-control" id="name" placeholder="Name" ng-model = "selectedItem.name"  >
+			    	</div>
+			    	<div class="form-group">
+					    <label for="email">Email address</label>
+					    <input type="email" class="form-control" id="email" placeholder="Email" ng-model = "selectedItem.email">
+					</div>
+					 <div class="form-group ">
+				        <label  for="date"> Reservation Date </label>
+				        <input type="text" class="form-control" id="date" placeholder="Reservation Date" ng-model = "selectedItem.date">
+	        		</div>
+	        		<div class="form-group ">
+					    <label for="singleSelect"> Choose favorite city </label>
+					  	<select name="singleSelect" class="form-control" ng-init = "options[selectedItem.city]" ng-model = "selectedItem.city" >
+				  			<option ng-repeat = "item in allCities" >
+				  				{{item}}
+				  			</option>
+		    		 	</select>
+					</div>
+		      </div>
+		      <div class="modal-footer">
+
+		        <div class="form-group">
+	    			<button type="button" class="btn btn-primary"  > edit Reservation </button>
+	    			<!-- ng-click = "updateReservation()" -->
+	    	    </div>
+		      </div>
+		    </div>
+
+		  </div>
+	    </div>
+    </div>
+   
+    

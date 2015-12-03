@@ -1,0 +1,23 @@
+{
+  "name": "infi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Sanaa_Elkomy@bitbucket.org/Sanaa_Elkomy/egypttour.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Sanaa_Elkomy/egypttour#readme",
+  "dependencies": {
+    "bootstrap3": "^3.3.5",
+    "connect": "^3.4.0",
+    "nodemon": "^1.8.1",
+    "serve-static": "^1.10.0"
+  }
+}
